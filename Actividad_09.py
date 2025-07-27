@@ -29,8 +29,7 @@ def addmov():
     temp_list = []
     name = input("Coloque el nombre de la nueva película: ")
     temp_list.append(name)
-    genre = input(
-        "Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc. Drama\nd.Sci-Fi\ne. Crime\nf. Terror\n\n")
+    genre = input("Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc. Drama\nd.Sci-Fi\ne. Crime\nf. Terror\n\n")
     if genre.lower() == "a":
         temp_list.append("Action")
     elif genre.lower() == "b":
@@ -74,7 +73,10 @@ while boot_menu:
                 print(f"Película: {movie[0]}\nGénero: {movie[1]}\nAño: {movie[2]}\n\n")
         case "3":
             try:
-                pass
+                genre_searcher = input("Escriba el género que desea buscar: \n")
+                for movie in movies:
+                    if genre_searcher.lower() == movie[1].lower():
+                        print(f"Película: {movie[0]}\nGénero: {movie[1]}\nAño: {movie[2]}\n\n")
             except ValueError:
                 print("Ese no es un número")
         case "4":
