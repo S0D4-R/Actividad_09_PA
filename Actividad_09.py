@@ -49,7 +49,7 @@ def addmov():
     temp_list.append(year)
     print("Película agregada exitosamente:\n {}, {}, {}\n\n".format(temp_list[0], temp_list[1], temp_list[2]))
     return temp_list
-
+#
 
 
 boot_menu = True
