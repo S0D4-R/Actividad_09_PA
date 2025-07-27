@@ -25,6 +25,31 @@ movies = [
     ["Como agua para chocolate", "Romance", 1992],
     ["Gladiador", "Action", 2000]
 ]
+def addmov():
+    temp_list = []
+    name = input("Coloque el nombre de la nueva película: ")
+    temp_list.append(name)
+    genre = input(
+        "Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc. Drama\nd.Sci-Fi\ne. Crime\nf. Terror\n\n")
+    if genre.lower() == "a":
+        temp_list.append("Action")
+    elif genre.lower() == "b":
+        temp_list.append("Romance")
+    elif genre.lower() == "c":
+        temp_list.append("Drama")
+    elif genre.lower() == "d":
+        temp_list.append("Sci-Fi")
+    elif genre.lower() == "e":
+        temp_list.append("Crime")
+    elif genre.lower() == "f":
+        temp_list.append("Terror")
+    else:
+        print("Opción no válida")
+    year = int(input("Coloque el año de estreno"))
+    temp_list.append(year)
+    print("Película agregada exitosamente:\n {}, {}, {}\n\n".format(temp_list[0], temp_list[1], temp_list[2]))
+    return temp_list
+
 
 
 boot_menu = True
@@ -40,29 +65,7 @@ while boot_menu:
     match menu_inpt:
         case "1":
             try:
-                temp_list = []
-                name = input("Coloque el nombre de la nueva película: ")
-                temp_list.append(name)
-                genre = input("Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc. Drama\nd.Sci-Fi\ne. Crime\nf. Terror\n\n")
-                if genre.lower() == "a":
-                    temp_list.append("Action")
-                elif genre.lower() == "b":
-                    temp_list.append("Romance")
-                elif genre.lower() == "c":
-                    temp_list.append("Drama")
-                elif genre.lower() == "d":
-                    temp_list.append("Sci-Fi")
-                elif genre.lower() == "e":
-                    temp_list.append("Crime")
-                elif genre.lower() == "f":
-                    temp_list.append("Terror")
-                else:
-                    print("Opción no válida")
-                year = int(input("Coloque el año de estreno"))
-                temp_list.append(year)
-                movies.append(temp_list)
-                print("Película agregada exitosamente:\n {}, {}, {}\n\n".format(temp_list[0], temp_list[1], temp_list[2]))
-
+                movies.append(addmov())
             except ValueError:
                 print("Ese no es un número")
         case "2":
@@ -71,12 +74,18 @@ while boot_menu:
                 print(f"Película: {movie[0]}\nGénero: {movie[1]}\nAño: {movie[2]}\n\n")
         case "3":
             try:
-                eve_xxx = int(input("Coloque el número: "))
                 pass
             except ValueError:
                 print("Ese no es un número")
         case "4":
-            pass
+            rem_mov = input("Coloque el nombre de la película que quiere eliminar: ")
+            index = 0
+            for movie in movies:
+                if rem_mov.lower() == movie[0].lower():
+                    movies.remove(movie)
+                    break
+            index += 1
+
         case "5":
             pass
         case "6":
