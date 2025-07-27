@@ -86,9 +86,45 @@ while boot_menu:
                     print("La película {} ha sido eliminada".format(movie[0]))
                     movies.remove(movie)
                     break
-
         case "5":
-            pass
+            total_mov = 0
+            total_sci = 0
+            total_act = 0
+            total_rom = 0
+            total_hor = 0
+            total_drm = 0
+            total_cri = 0
+            index_old = 0
+            true_old = 5000
+
+            for movie in movies:
+                total_mov += 1
+                temp_old = movie[2]
+                if temp_old < true_old:
+                    index_old = total_mov
+                    true_old = temp_old
+
+                if movie[1] == "Action":
+                    total_act += 1
+                elif movie[1] == "Romance":
+                    total_rom += 1
+                elif movie[1] == "Drama":
+                    total_drm += 1
+                elif movie[1] == "Crime":
+                    total_cri += 1
+                elif movie[1] == "Terror":
+                    total_hor += 1
+                elif movie[1] == "Sci-Fi":
+                    total_sci += 1
+            print(f"Total de películas: {total_mov}\n"
+                  f"Total de Acción: {total_act}\n"
+                  f"Total de Romance: {total_rom}\n"
+                  f"Total de Drama: {total_drm}\n"
+                  f"Total de Crimen: {total_cri}\n"
+                  f"Total de Terror: {total_hor}\n"
+                  f"Total de Sci-Fi: {total_sci}\n"
+                  f"La película más vieja es: {movies[index_old - 1][0]}\n")
+
         case "6":
             print("Gracias por usar el programa")
             boot_menu = False
