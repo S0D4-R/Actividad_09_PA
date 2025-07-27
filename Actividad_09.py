@@ -66,7 +66,9 @@ while boot_menu:
             except ValueError:
                 print("Ese no es un número")
         case "2":
-            pass
+            print("Este es el catálogo de películas: \n")
+            for movie in movies:
+                print(f"Película: {movie[0]}\nGénero: {movie[1]}\nAño: {movie[2]}\n\n")
         case "3":
             try:
                 eve_xxx = int(input("Coloque el número: "))
