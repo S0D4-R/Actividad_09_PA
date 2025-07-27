@@ -43,24 +43,40 @@ while boot_menu:
                 temp_list = []
                 name = input("Coloque el nombre de la nueva película: ")
                 temp_list.append(name)
-                genre = input("Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc.")
-                year = None
+                genre = input("Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc. Drama\nd.Sci-Fi\ne. Crime\nf. Terror\n\n")
+                if genre.lower() == "a":
+                    temp_list.append("Action")
+                elif genre.lower() == "b":
+                    temp_list.append("Romance")
+                elif genre.lower() == "c":
+                    temp_list.append("Drama")
+                elif genre.lower() == "d":
+                    temp_list.append("Sci-Fi")
+                elif genre.lower() == "e":
+                    temp_list.append("Crime")
+                elif genre.lower() == "f":
+                    temp_list.append("Terror")
+                else:
+                    print("Opción no válida")
+                year = int(input("Coloque el año de estreno"))
                 temp_list.append(year)
+                movies.append(temp_list)
+                print("Película agregada exitosamente:\n {}, {}, {}\n\n".format(temp_list[0], temp_list[1], temp_list[2]))
 
             except ValueError:
                 print("Ese no es un número")
         case "2":
-            triarea()
+            pass
         case "3":
             try:
                 eve_xxx = int(input("Coloque el número: "))
-                even_odd(eve_xxx)
+                pass
             except ValueError:
                 print("Ese no es un número")
         case "4":
-            score_calc()
+            pass
         case "5":
-            max_min_calculataa()
+            pass
         case "6":
             print("Gracias por usar el programa")
             boot_menu = False
