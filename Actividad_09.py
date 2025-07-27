@@ -20,22 +20,33 @@ Salir del programa
 Cerrar el programa cuando el usuario lo indique.
 """
 
+movies = [
+    ["Tron Legacy", "Sci-Fi", 2012],
+    ["Como agua para chocolate", "Romance", 1992],
+    ["Gladiador", "Action", 2000]
+]
+
 
 boot_menu = True
 
 while boot_menu:
     menu_inpt = input("----------Bienvenido----------\n"
-                      "\n1. Ingresar n números y mostrar"
-                      "\n2. Calcular el área de un triángulo"
-                      "\n3. Verificar si un número es par o impar"
-                      "\n4. Calcular el promedio de n calificaciones"
-                      "\n5. Ingresar n números y mostrar el mayor y el menor"
+                      "\n1. Agregar película"
+                      "\n2. Mostrar todas las películas registradas"
+                      "\n3. Buscar películas por género"
+                      "\n4. Eliminar una película por título"
+                      "\n5. Ver estadísticas del catálogo"
                       "\n6. Salir del programa\n\nSeleccione una opción: ")
     match menu_inpt:
         case "1":
             try:
-                max = int(input("Coloque la cantidad de números que quiere colocar: "))
-                multifunction_n(max)
+                temp_list = []
+                name = input("Coloque el nombre de la nueva película: ")
+                temp_list.append(name)
+                genre = input("Escoja entre los siguientes géneros:\na. Action\nb. Romance\nc.")
+                year = None
+                temp_list.append(year)
+
             except ValueError:
                 print("Ese no es un número")
         case "2":
@@ -52,4 +63,4 @@ while boot_menu:
             max_min_calculataa()
         case "6":
             print("Gracias por usar el programa")
-            key = False
+            boot_menu = False
