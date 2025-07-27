@@ -79,12 +79,11 @@ while boot_menu:
                 print("Ese no es un número")
         case "4":
             rem_mov = input("Coloque el nombre de la película que quiere eliminar: ")
-            index = 0
             for movie in movies:
                 if rem_mov.lower() == movie[0].lower():
+                    print("La película {} ha sido eliminada".format(movie[0]))
                     movies.remove(movie)
                     break
-            index += 1
 
         case "5":
             pass
